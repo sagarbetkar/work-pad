@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const user = new Schema({
+const userSchema = new Schema({
   username: String,
   email: String,
   password: String,
@@ -12,3 +12,7 @@ const user = new Schema({
   facebook: String,
   google: String
 });
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

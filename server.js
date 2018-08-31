@@ -14,7 +14,13 @@ const bodyParser = require('body-parser');
  * Create Express server.
  */
 const app = express();
-
+/**
+ * bodyParser usage
+ */
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 /**
  * Connect to MongoDB.
  */
@@ -30,6 +36,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/v1/spaces', spaceController.getAllSpace);
+app.get('/api/v1/spaces/:id', spaceController.getSingleSpace);
 app.post('/api/v1/spaces', spaceController.postNewSpace);
 
 

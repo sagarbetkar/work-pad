@@ -24,7 +24,12 @@ exports.getAllSpace = (req, res) => {
   })
 };
 
+exports.getSingleSpace = (req, res) => {
+  
+}
+
 exports.postNewSpace = (req, res) => {
+    console.log(req.body);
     let { name, slug, anemities, size, address, timing, social, createdAt, modifiedBy } = req.body;
     var space = new Space({
         name,

@@ -34,7 +34,7 @@ const spaceSchema = new mongoose.Schema({
   },
 
   createdAt : Date,
-  modifiedBy: Date
+  modifiedBy: Date,
 });
 
 const Space = mongoose.model('Space', spaceSchema);

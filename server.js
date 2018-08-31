@@ -13,7 +13,9 @@ const app = express();
 /**
  * Connect to MongoDB.
  */
-mongoose.connect('mongodb://localhost/work-pad');
+mongoose.connect('mongodb://localhost:27017/work-pad');
+mongoose.connection.on('error', (error) => console.error(error));
+mongoose.connection.on('open', () => console.log("Success in connecting to mongodb"));
 
 /**
  * Primary app routes.

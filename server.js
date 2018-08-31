@@ -36,8 +36,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/v1/spaces', spaceController.getAllSpace);
-app.get('/api/v1/spaces/:id', spaceController.getSingleSpace);
+app.get('/api/v1/spaces/:id', spaceController.getSingleSpaceById);
 app.post('/api/v1/spaces', spaceController.postNewSpace);
+app.put('/api/v1/spaces/:id', spaceController.updateSpaceById);
 
 
 app.listen(3000);

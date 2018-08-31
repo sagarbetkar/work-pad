@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const spaceSchema = new Schema({
+const spaceSchema = new mongoose.Schema({
   name: String,
   slug: String,
   anemities: Array,
@@ -31,7 +31,10 @@ const spaceSchema = new Schema({
     website: String,
     facebook: String,
     twitter: String
-  }
+  },
+
+  createdAt : Date,
+  modifiedBy: Date
 });
 
 const Space = mongoose.model('Space', spaceSchema);

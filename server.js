@@ -1,9 +1,24 @@
+/**
+ * Module dependencies.
+ */
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-var app = express();
+/**
+ * Create Express server.
+ */
+const app = express();
 
-app.get('/', function (req, res) {
+/**
+ * Connect to MongoDB.
+ */
+mongoose.connect('mongodb://localhost/work-pad');
+
+/**
+ * Primary app routes.
+ */
+app.get('/', (req, res) => {
   res.send('Hello World');
 });
 

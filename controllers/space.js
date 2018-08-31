@@ -110,3 +110,15 @@ exports.updateSpaceById = (req, res) => {
     res.json(space)
   });
 };
+
+exports.deleteSpaceById =  (request, response) => {
+    Space.findOneAndDelete({ _id: request.params.id }, (error, deleteId) => {
+        if (error)
+            response.json({
+                error: error,
+                status: 500
+            });
+        response.json({ message: "deleted successfully" });
+    });
+
+};

@@ -1,25 +1,26 @@
 const Space = require('../models/space');
 
 exports.getAllSpace = (req, res) => {
-  Space.find({}, (err, spaces) => {
-    if (err) {
+  var limit = parseInt(req.query.limit) || 10;
+
+  var query = Space.find().limit(limit);
+  console.log(req.query);
+  if (req.query.name) {
+    query.where({
+      name: req.query.name
+    });
+  }
+  if (req.query.city) {
+    query.where('address.city').equals(req.query.city);
+  }
+
+  query.exec((error, space) => {
+    if (error)
       res.json({
-        message: "Server error, Please try after some time.",
+        error: error,
         status: 500
       });
-    }
-    if (spaces) {
-      res.json({
-        data: spaces,
-        message: "Spaces data Fetched successfully",
-        status: 200
-      });
-    } else {
-      res.json({
-        message: "No data found",
-        status: 200
-      });
-    }
+    res.json(space);
   });
 };
 

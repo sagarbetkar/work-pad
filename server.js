@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
  * Controllers (route handlers).
  */
   const spaceController = require('./controllers/space');
+  const userController = require('./controllers/user');
 
 /**
  * Create Express server.
@@ -41,5 +42,6 @@ app.post('/api/v1/spaces', spaceController.postNewSpace);
 app.put('/api/v1/spaces/:id', spaceController.updateSpaceById);
 app.delete('/api/v1/spaces/:id', spaceController.deleteSpaceById);
 
+app.post('/api/v1/users', userController.postNewUser);
 
 app.listen(3000);

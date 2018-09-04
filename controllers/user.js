@@ -107,3 +107,14 @@ exports.updateUserById = (req, res) => {
     res.json(user);
   });
 };
+
+exports.deleteUserById = (req, res) => {
+  User.findOneAndDelete({_id: req.params.id}, (error, deleteId) => {
+    if (error)
+        res.json({
+          error: error,
+          status: 500
+        });
+        res.json({message: "Deleted successfully"});
+  });
+};

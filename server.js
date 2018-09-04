@@ -43,5 +43,6 @@ app.put('/api/v1/spaces/:id', spaceController.updateSpaceById);
 app.delete('/api/v1/spaces/:id', spaceController.deleteSpaceById);
 
 app.post('/api/v1/users', userController.postNewUser);
+app.get('/api/v1/users', userController.getAllUsers);
 
 app.listen(3000);

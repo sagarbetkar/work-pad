@@ -44,5 +44,6 @@ app.delete('/api/v1/spaces/:id', spaceController.deleteSpaceById);
 
 app.post('/api/v1/users', userController.postNewUser);
 app.get('/api/v1/users', userController.getAllUsers);
+app.get('/api/v1/users/:id', userController.getAllUserById);
 
 app.listen(3000);

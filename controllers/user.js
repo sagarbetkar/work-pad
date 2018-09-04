@@ -50,3 +50,26 @@ exports.getAllUsers = (req, res) => {
     }
   });
 };
+
+exports.getAllUserById = (req, res) => {
+  User.findById(req.params.id, (err, users) => {
+    if (err) {
+      res.json({
+        message: "Server error, Please try after some time.",
+        status: 500
+      });
+    }
+    if (users) {
+      res.json({
+        data: users,
+        message: "User data fetched successfully",
+        status: 200
+      });
+    } else {
+      res.json({
+        message: "No data found",
+        status: 200
+      });
+    }
+  });
+};

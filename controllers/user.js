@@ -51,7 +51,7 @@ exports.getAllUsers = (req, res) => {
   });
 };
 
-exports.getAllUserById = (req, res) => {
+exports.getUserById = (req, res) => {
   User.findById(req.params.id, (err, users) => {
     if (err) {
       res.json({
@@ -71,5 +71,39 @@ exports.getAllUserById = (req, res) => {
         status: 200
       });
     }
+  });
+};
+
+exports.updateUserById = (req, res) => {
+  console.log(req.body);
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    facebook,
+    google,
+    createdAt,
+    modifiedAt
+  } = req.body;
+  User.update({
+    _id: req.params.id
+  }, {
+    firstName,
+    lastName,
+    email,
+    password,
+    facebook,
+    google,
+    createdAt,
+    modifiedAt
+  }, {}, (error, user) => {
+    if (error)
+      res.json({
+        error: error,
+        status: 500
+      });
+      console.log(error);
+    res.json(user);
   });
 };

@@ -72,3 +72,36 @@ exports.getReviewById = (req, res) => {
     }
   });
 };
+
+exports.updateReviewById = (req, res) => {
+  const {
+    name,
+    title,
+    comment,
+    rating,
+    slug,
+    latitude,
+    longitude,
+    createdAt
+  } = req.body;
+  Review.update({
+    _id: req.params.id
+  }, {
+    name,
+    title,
+    comment,
+    rating,
+    slug,
+    latitude,
+    longitude,
+    createdAt
+  }, {}, (error, review) => {
+    if (error)
+      res.json({
+        error: error,
+        status: 500
+      });
+      console.log(error);
+      res.json(review);
+  });
+};

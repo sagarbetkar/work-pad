@@ -49,3 +49,26 @@ exports.getAllReviews = (req, res) => {
     }
   });
 }
+
+exports.getReviewById = (req, res) => {
+  Review.findById(req.params.id, (err, review) => {
+    if (err) {
+      res.json({
+        message: "Server error, Please try after some time.",
+        status: 500
+      });
+    }
+    if (review) {
+      res.json({
+        data: review,
+        message: "User data fetched successfully",
+        status: 200
+      });
+    } else {
+      res.json({
+        message: "No data found",
+        status: 200
+      });
+    }
+  });
+};

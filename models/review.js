@@ -8,8 +8,9 @@ const reviewSchema = new mongoose.Schema ({
   slug: String,
   latitude: Number,
   longitude: Number,
+  createdAt: Date,
 });
 
-const Review = mongoose.model('Review', userSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;

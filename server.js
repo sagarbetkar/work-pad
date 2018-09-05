@@ -52,8 +52,8 @@ app.delete('/api/v1/users/:id', userController.deleteUserById);
 
 app.post('/api/v1/reviews', reviewController.postNewReview);
 app.get('/api/v1/reviews', reviewController.getAllReviews);
-/*app.get('/api/v1/reviews/:id', reviewController.getReviewById);
-app.put('/api/v1/reviews/:id', reviewController.updateReviewById);
+app.get('/api/v1/reviews/:id', reviewController.getReviewById);
+/*app.put('/api/v1/reviews/:id', reviewController.updateReviewById);
 app.delete('/api/v1/reviews/:id', reviewController.deleteReviewById);*/
 
 /*app.post('/api/v1/blogs', reviewController.postNewBlog);

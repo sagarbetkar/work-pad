@@ -12,7 +12,7 @@ exports.postNewUser = (req, res) => {
     modifiedAt
   } = req.body;
 
-  var user = new User ({
+  var user = new User({
     firstName,
     lastName,
     email,
@@ -103,18 +103,22 @@ exports.updateUserById = (req, res) => {
         error: error,
         status: 500
       });
-      console.log(error);
+    console.log(error);
     res.json(user);
   });
 };
 
 exports.deleteUserById = (req, res) => {
-  User.findOneAndDelete({_id: req.params.id}, (error, deleteId) => {
+  User.findOneAndDelete({
+    _id: req.params.id
+  }, (error, deleteId) => {
     if (error)
-        res.json({
-          error: error,
-          status: 500
-        });
-        res.json({message: "Deleted successfully"});
+      res.json({
+        error: error,
+        status: 500
+      });
+    res.json({
+      message: "Deleted successfully"
+    });
   });
 };

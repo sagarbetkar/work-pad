@@ -1,7 +1,7 @@
 const Review = require('../models/review');
 
 exports.postNewReview = (req, res) => {
-  let{
+  let {
     name,
     title,
     comment,
@@ -11,7 +11,7 @@ exports.postNewReview = (req, res) => {
     longitude,
     createdAt
   } = req.body;
-  var review = new Review ({
+  var review = new Review({
     name,
     title,
     comment,
@@ -36,7 +36,7 @@ exports.getAllReviews = (req, res) => {
       });
     }
     if (reviews) {
-      res.json ({
+      res.json({
         data: reviews,
         message: "All reviews fetched",
         status: 200
@@ -101,7 +101,22 @@ exports.updateReviewById = (req, res) => {
         error: error,
         status: 500
       });
-      console.log(error);
-      res.json(review);
+    console.log(error);
+    res.json(review);
   });
 };
+
+exports.deleteReviewById = (req, res) => {
+  Review.findOneAndDelete({
+    _id: req.params.id
+  }, (error, deleteId) => {
+    if (error)
+      res.json({
+        error: error,
+        status: 500
+      });
+    res.json({
+      message: "Deleted successfully"
+    });
+  });
+}

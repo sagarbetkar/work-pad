@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
   const spaceController = require('./controllers/space');
   const userController = require('./controllers/user');
   const reviewController = require('./controllers/review');
-  /*const blogController = require('./controllers/blog');*/
+  const blogController = require('./controllers/blog');
 
 /**
  * Create Express server.
@@ -56,10 +56,10 @@ app.get('/api/v1/reviews/:id', reviewController.getReviewById);
 app.put('/api/v1/reviews/:id', reviewController.updateReviewById);
 app.delete('/api/v1/reviews/:id', reviewController.deleteReviewById);
 
-/*app.post('/api/v1/blogs', reviewController.postNewBlog);
-app.get('/api/v1/blogs', reviewController.getAllBlogs);
-app.get('/api/v1/blogs/:id', reviewController.getBlogById);
-app.put('/api/v1/blogs/:id', reviewController.updateBlogById);
-app.delete('/api/v1/blogs/:id', reviewController.deleteBlogById);*/
+app.post('/api/v1/blogs', blogController.postNewBlog);
+app.get('/api/v1/blogs', blogController.getAllBlogs);
+app.get('/api/v1/blogs/:id', blogController.getBlogById);
+app.put('/api/v1/blogs/:id', blogController.updateBlogById);
+app.delete('/api/v1/blogs/:id', blogController.deleteBlogById);
 
 app.listen(3000);

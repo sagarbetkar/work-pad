@@ -86,9 +86,7 @@ exports.updateSpaceById = (req, res) => {
     size,
     address,
     timing,
-    social,
-    createdAt,
-    modifiedBy
+    social
   } = req.body;
   Space.update({
     _id: req.params.id
@@ -99,9 +97,7 @@ exports.updateSpaceById = (req, res) => {
     size,
     address,
     timing,
-    social,
-    createdAt,
-    modifiedBy
+    social
   }, {}, (error, space) => {
     if (error)
       res.json({

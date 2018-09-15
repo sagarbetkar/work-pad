@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema ({
   slug: String,
   latitude: Number,
   longitude: Number,
-  createdAt: Date,
+  createdAt: Date
 });
 
 const Review = mongoose.model('Review', reviewSchema);

@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const spaceSchema = new mongoose.Schema({
   name: String,
   slug: String,
-  anemities: Array,
+  anemities: [String],
   size: Number,
-
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   address:{
-    line: Array,
+    line: String,
     area: String,
-    pincode: String,
+    pincode: Number,
     city: String,
     state: String,
     country: String,
@@ -33,8 +33,8 @@ const spaceSchema = new mongoose.Schema({
     twitter: String
   },
 
-  createdAt : Date,
-  modifiedBy: Date,
+  createdAt : { type: Date, default: Date.now},
+  modifiedBy: { type: Date, default: Date.now}
 });
 
 const Space = mongoose.model('Space', spaceSchema);

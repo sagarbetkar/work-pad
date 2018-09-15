@@ -81,8 +81,7 @@ exports.updateReviewById = (req, res) => {
     rating,
     slug,
     latitude,
-    longitude,
-    createdAt
+    longitude
   } = req.body;
   Review.update({
     _id: req.params.id
@@ -93,8 +92,7 @@ exports.updateReviewById = (req, res) => {
     rating,
     slug,
     latitude,
-    longitude,
-    createdAt
+    longitude
   }, {}, (error, review) => {
     if (error)
       res.json({

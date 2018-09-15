@@ -77,7 +77,6 @@ exports.updateBlogById = (req, res) => {
     description,
     photo,
     slug,
-    createdAt,
     type
   } = req.body;
   Blog.update({
@@ -87,7 +86,6 @@ exports.updateBlogById = (req, res) => {
     description,
     photo,
     slug,
-    createdAt,
     type
   }, {}, (error, blog) => {
     if (error)
